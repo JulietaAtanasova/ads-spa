@@ -5,19 +5,23 @@ angular.module('adsApp', [
     'adsApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+    });
     $routeProvider.when('/login', {
-        templateUrl: 'partials/login-page.html',
+        templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
     });
     $routeProvider.when('/register', {
-        templateUrl: 'partials/register-page.html',
+        templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
     });
     $routeProvider.when('/publish', {
-        templateUrl: 'partials/add-ad-page.html',
+        templateUrl: 'views/partials/add-ad-page.html',
         controller: 'AddAdCtrl'
     });
     $routeProvider.otherwise({
-        redirectTo: '/login'
+        redirectTo: '/'
     });
 }]);
