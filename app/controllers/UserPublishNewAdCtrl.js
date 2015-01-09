@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserPublishNewAdController',
+app.controller('UserPublishNewAdCtrl',
     function($scope, $location, townsService, categoriesService,
         userService, notifyService) {
         $scope.adData = {
