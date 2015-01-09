@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adsApp', [
+var app = angular.module('adsApp', [
         'ngRoute'
     ]).config(['$routeProvider', function($routeProvider) {
         $routeProvider
