@@ -6,7 +6,7 @@ app.factory('userService',
             createNewAd: function (adData, success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/api/user/ads',
+                    url: baseServiceUrl + '/user/ads',
                     headers: authService.getAuthHeaders(),
                     data: adData
                 };
@@ -16,7 +16,7 @@ app.factory('userService',
             getUserAds: function (params, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/api/user/ads',
+                    url: baseServiceUrl + '/user/ads',
                     headers: authService.getAuthHeaders(),
                     params: params
                 };
