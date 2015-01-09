@@ -1,10 +1,8 @@
 'use strict';
 
 angular.module('adsApp', [
-    'ngRoute',
-    'adsApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
+        'ngRoute'
+    ]).config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
