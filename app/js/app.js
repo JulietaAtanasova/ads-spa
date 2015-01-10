@@ -31,6 +31,9 @@ var app = angular.module('app', [
             }).when('/user/ads', {
                 templateUrl: 'templates/user/user-ads.html',
                 controller: 'UserAdsCtrl'
+            }).when('/user/ads/edit/:id', {
+                templateUrl: 'templates/user/edit-ad.html',
+                controller: 'UserAdsCtrl'
             }).otherwise({
                 redirectTo: '/'
             });
