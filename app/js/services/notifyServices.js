@@ -1,14 +1,15 @@
 'use strict';
 
-app.factory('alertService',
-    function() {
+app.factory('notifyService',
+    function () {
         return {
             showInfo: function(msg) {
-                swal({
+                noty({
                     text: msg,
                     type: 'info',
-                    timer: 2000
-                });
+                    layout: 'topCenter',
+                    timeout: 1000}
+                );
             },
             showError: function(msg, serverError) {
                 // Collect errors to display from the server response
@@ -31,11 +32,12 @@ app.factory('alertService',
                 if (errors.length > 0) {
                     msg = msg + ":<br>" + errors.join("<br>");
                 }
-                swal({
+                noty({
                     text: msg,
                     type: 'error',
-                    timeout: 5000
-                });
+                    layout: 'topCenter',
+                    timeout: 5000}
+                );
             }
         }
     }

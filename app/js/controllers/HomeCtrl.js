@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('HomeController',
+app.controller('HomeCtrl',
     function($scope, adsService, notifyService, pageSize) {
         $scope.adsParams = {
             'startPage': 1,

@@ -3,7 +3,7 @@
 app.factory('adsService',
     function($resource, baseServiceUrl) {
         var adsResource = $resource(
-            baseServiceUrl + '/ads',
+            baseServiceUrl + '/api/ads',
             null, {
                 'getAll': {
                     method: 'GET'
@@ -22,7 +22,7 @@ app.factory('adsService',
 app.factory('townsService',
     function($resource, baseServiceUrl) {
         var townsResource = $resource(
-            baseServiceUrl + '/towns'
+            baseServiceUrl + '/api/towns'
         );
 
         return {
@@ -36,7 +36,7 @@ app.factory('townsService',
 app.factory('categoriesService',
     function($resource, baseServiceUrl) {
         var categoriesResource = $resource(
-            baseServiceUrl + '/categories'
+            baseServiceUrl + '/api/categories'
         );
 
         return {
