@@ -1,19 +1,20 @@
 'use strict';
 
 app.controller('LeftSidebarCtrl',
-    function($scope, $rootScope, adsService, townsService) {
-        $scope.ads = adsService.getAll();
-        $scope.towns = townsService.getTowns();
+    // function($scope, $rootScope, adsService, townsService) {
+    //     $scope.ads = adsService.getAll();
+        
+    //     $scope.towns = townsService.getTowns();
 
-        $scope.categoryClicked = function(clickedCategoryId) {
-            $scope.selectedCategoryId = clickedCategoryId;
-            $rootScope.$broadcast("categorySelectionChanged", clickedCategoryId);
-        };
+    //     $scope.categoryClicked = function(clickedCategoryId) {
+    //         $scope.selectedCategoryId = clickedCategoryId;
+    //         $rootScope.$broadcast("categorySelectionChanged", clickedCategoryId);
+    //     };
 
-        $scope.townClicked = function(clickedTownId) {
-            $scope.selectedTownId = clickedTownId;
-            $rootScope.$broadcast("townSelectionChanged", clickedTownId);
-        };
+    //     $scope.townClicked = function(clickedTownId) {
+    //         $scope.selectedTownId = clickedTownId;
+    //         $rootScope.$broadcast("townSelectionChanged", clickedTownId);
+    //     };
 
     }
 );
