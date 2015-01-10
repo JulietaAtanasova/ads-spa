@@ -28,6 +28,9 @@ var app = angular.module('app', [
             }).when('/user/ads/publish', {
                 templateUrl: 'templates/user/publish-new-ad.html',
                 controller: 'UserPublishNewAdCtrl'
+            }).when('/user/ads', {
+                templateUrl: 'templates/user/user-ads.html',
+                controller: 'UserAdsCtrl'
             }).otherwise({
                 redirectTo: '/'
             });
