@@ -1,10 +1,29 @@
 <div class="box">
-    <h2>My Ads</h2>
-
-<pagination total-items="ads.numItems" ng-model="adsParams.startPage"
-  items-per-page="adsParams.pageSize" ng-change="reloadAds()"
-  max-size="9" boundary-links="true">
-</pagination>
+    <h2>Ads</h2>
+    <ul class="sidebar-menu">
+        <li class="special"
+            ng-class="{'selected' : selectedAdStatus == null}"
+            ng-click="adStatusClicked(null)">
+            <a href="#/user/ads">All</a>
+        </li>
+        <li ng-click="adStatusClicked('published')"
+            ng-class="{'selected' : selectedAdStatus == 'published'}">
+            <a href="#/user/ads">Published</a>
+        </li>
+        <li ng-click="adStatusClicked('waitApproval')"
+            ng-class="{'selected' : selectedAdStatus == 'waitApproval'}">
+            <a href="#/user/ads">Waiting Approval</a>
+        </li>
+        <li ng-click="adStatusClicked('inactive')"
+            ng-class="{'selected' : selectedAdStatus == 'inactive'}">
+            <a href="#/user/ads">Inactive</a>
+        </li>
+        <li ng-click="adStatusClicked('rejected')"
+            ng-class="{'selected' : selectedAdStatus == 'rejected'}">
+            <a href="#/user/ads">Rejected</a>
+        </li>
+    </ul>
+</div>
 
 <ul class="ads">
     <li ng-repeat="ad in ads.ads" class="box">
@@ -21,4 +40,11 @@
     </li>
 </ul>
 
+<pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<div ng-if="ads.ads.length==0" class="box no-data">
+    No ads found.
 </div>

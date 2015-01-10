@@ -29,7 +29,7 @@ var app = angular.module('app', [
                 templateUrl: 'templates/user/publish-new-ad.html',
                 controller: 'UserPublishNewAdCtrl'
             }).when('/user/ads', {
-                templateUrl: 'templates/home.html',
+                templateUrl: 'templates/user/user-ads.html',
                 controller: 'UserAdsCtrl'
             }).otherwise({
                 redirectTo: '/'

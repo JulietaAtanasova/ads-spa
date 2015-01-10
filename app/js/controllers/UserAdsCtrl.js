@@ -6,6 +6,9 @@ app.controller('UserAdsCtrl',
             'startPage': 1,
             'pageSize': pageSize
         };
+        $scope.adStatusClicked = function(clickedAdStatus) {
+            $scope.selectedAdStatus = clickedAdStatus;
+        };
 
         $scope.reloadAds = function() {
             userService.getUserAds(
