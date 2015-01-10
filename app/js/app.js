@@ -6,7 +6,7 @@ var app = angular.module('app', [
         'ui.bootstrap.pagination'
     ]).constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net/')
     .constant('pageSize', 2)
-    .run(function($rootScope, $location, authService) {
+    .run(function($rootScope, $routeParams, $location, authService) {
         $rootScope.$on('$locationChangeStart', function(event) {
             if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
                 // Authorization check: anonymous site visitors cannot access user routes
@@ -33,7 +33,7 @@ var app = angular.module('app', [
                 controller: 'UserAdsCtrl'
             }).when('/user/ads/edit/:id', {
                 templateUrl: 'templates/user/edit-ad.html',
-                controller: 'UserAdsCtrl'
+                controller: 'UserEditAdCtrl'
             }).otherwise({
                 redirectTo: '/'
             });

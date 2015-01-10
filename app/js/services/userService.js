@@ -49,7 +49,17 @@ app.factory('userService',
                     data: adData
                 };
                 $http(request).success(success).error(error);
+            },
+
+            getAdToEdit: function(id, success, error){
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/user/ads/' + id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
             }
+
         }
     }
 );

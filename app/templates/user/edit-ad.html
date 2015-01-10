@@ -28,14 +28,14 @@
 
     <p>
         <label for="town">Town:</label>
-        <select id="town" ng-model="userData.townId">
+        <select id="town" ng-model="adData.townId">
             <option value="null">(None)</option>
             <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
         </select>
     </p>
 
     <p>
-        <a ng-click="editAd(ad.id, adData)" class="button">Edit</a>
+        <a ng-click="editAd(adData)" class="button">Edit</a>
         <a href="#/user/ads" class="button">Cancel</a>
         <p>
 </div>
