@@ -1,14 +1,23 @@
 'use strict';
 
 app.controller('UserAdsCtrl',
-    function($scope, $location, userService, notifyService, pageSize) {
+    function($scope, $rootScope, $location, userService, notifyService, pageSize) {
         $scope.adsParams = {
             'startPage': 1,
             'pageSize': pageSize
         };
+
         $scope.adStatusClicked = function(clickedAdStatus) {
             $scope.selectedAdStatus = clickedAdStatus;
+            $rootScope.$broadcast("adStatusSelectionChanged", clickedAdStatus);
         };
+
+        $scope.$on("adStatusSelectionChanged", function(event, selectedAdStatus) {
+            $scope.adsParams.status = selectedAdStatus;
+            $scope.adsParams.startPage = 1;
+            $scope.reloadAds();
+        });
+
 
         $scope.reloadAds = function() {
             userService.getUserAds(

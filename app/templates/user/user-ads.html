@@ -6,20 +6,20 @@
             ng-click="adStatusClicked(null)">
             <a href="#/user/ads">All</a>
         </li>
-        <li ng-click="adStatusClicked('published')"
-            ng-class="{'selected' : selectedAdStatus == 'published'}">
+        <li ng-click="adStatusClicked('Published')"
+            ng-class="{'selected' : selectedAdStatus == 'Published'}">
             <a href="#/user/ads">Published</a>
         </li>
-        <li ng-click="adStatusClicked('waitApproval')"
-            ng-class="{'selected' : selectedAdStatus == 'waitApproval'}">
+        <li ng-click="adStatusClicked('WaitingApproval')"
+            ng-class="{'selected' : selectedAdStatus == 'WaitingApproval'}">
             <a href="#/user/ads">Waiting Approval</a>
         </li>
-        <li ng-click="adStatusClicked('inactive')"
-            ng-class="{'selected' : selectedAdStatus == 'inactive'}">
+        <li ng-click="adStatusClicked('Inactive')"
+            ng-class="{'selected' : selectedAdStatus == 'Inactive'}">
             <a href="#/user/ads">Inactive</a>
         </li>
-        <li ng-click="adStatusClicked('rejected')"
-            ng-class="{'selected' : selectedAdStatus == 'rejected'}">
+        <li ng-click="adStatusClicked('Rejected')"
+            ng-class="{'selected' : selectedAdStatus == 'Rejected'}">
             <a href="#/user/ads">Rejected</a>
         </li>
     </ul>
