@@ -38,9 +38,14 @@
         <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
         <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
         <div class="box"><strong>Status:</strong> {{ad.status}}</div>
-        <p>
+        <p ng-if="ad.status != 'Inactive'">
             <a ng-click="deactivateAd(ad.id)" class="button">Deactivate</a>
         <p>
+        <div ng-if="ad.status === 'Inactive'">
+            <a href="#/user/ads" class="button">Edit</a>
+            <a ng-click="publishAgainAd(ad.id)" class="button">Publish Again</a>
+            <a href="#/user/ads" class="button">Delete</a>
+        </div>
     </li>
 </ul>
 
