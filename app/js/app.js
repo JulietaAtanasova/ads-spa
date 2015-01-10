@@ -4,7 +4,7 @@ var app = angular.module('app', [
         'ngRoute',
         'ngResource',
         'ui.bootstrap.pagination'
-    ]).constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')
+    ]).constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net/')
     .constant('pageSize', 2)
     .run(function($rootScope, $location, authService) {
         $rootScope.$on('$locationChangeStart', function(event) {

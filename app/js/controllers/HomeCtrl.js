@@ -6,7 +6,6 @@ app.controller('HomeCtrl',
             'startPage': 1,
             'pageSize': pageSize
         };
-
         // This event is sent by RightSideBarController when the current category is changed
         $scope.$on("categorySelectionChanged", function(event, selectedCategoryId) {
             $scope.adsParams.categoryId = selectedCategoryId;
