@@ -18,7 +18,6 @@ app.controller('UserAdsCtrl',
             $scope.reloadAds();
         });
 
-
         $scope.reloadAds = function() {
             userService.getUserAds(
                 $scope.adsParams,
@@ -32,5 +31,18 @@ app.controller('UserAdsCtrl',
         };
 
         $scope.reloadAds();
+
+        $scope.deactivateAd = function(id) {
+            userService.deactivateAd(
+                id,
+                function success(data) {
+                    notifyService.showInfo("Advertisement deactivated successful.");
+                    $scope.reloadAds();
+                },
+                function error(err) {
+                    notifyService.showError("Cannot load ads", err);
+                }
+            );
+        }
     }
 );

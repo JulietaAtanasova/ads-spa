@@ -37,6 +37,10 @@
         <div><strong>Name:</strong> {{ad.ownerName}}</div>
         <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
         <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
+        <div class="box"><strong>Status:</strong> {{ad.status}}</div>
+        <p>
+            <a ng-click="deactivateAd(ad.id)" class="button">Deactivate</a>
+        <p>
     </li>
 </ul>
 
