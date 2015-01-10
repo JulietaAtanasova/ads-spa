@@ -1,9 +1,9 @@
 'use strict';
 
 app.controller('LeftSidebarCtrl',
-    // function($scope, $rootScope, adsService, townsService) {
+    function($scope, $rootScope, adsService, townsService) {
     //     $scope.ads = adsService.getAll();
-        
+
     //     $scope.towns = townsService.getTowns();
 
     //     $scope.categoryClicked = function(clickedCategoryId) {
