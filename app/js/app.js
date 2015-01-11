@@ -40,6 +40,18 @@ var app = angular.module('app', [
             }).when('/user/profile', {
                 templateUrl: 'templates/user/edit-profile.html',
                 controller: 'UserProfileCtrl'
+            }).when('/admin/home', {
+                templateUrl: 'templates/admin/admin-ads.html',
+                controller: 'AdminAdCtrl'
+            }).when('/admin/users/list', {
+                templateUrl: 'templates/admin/users-list.html',
+                controller: 'AdminAdCtrl'
+            }).when('/admin/categories/list', {
+                templateUrl: 'templates/admin/categories-list.html',
+                controller: 'AdminAdCtrl'
+            }).when('/admin/towns/list', {
+                templateUrl: 'templates/admin/towns-list.html',
+                controller: 'AdminAdCtrl'
             }).otherwise({
                 redirectTo: '/'
             });

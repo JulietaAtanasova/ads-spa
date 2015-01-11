@@ -1,17 +1,13 @@
-<!-- Navigation box for anonymous site visitors -->
+<!-- Navigation for anonymous site visitors -->
 <div ng-if="authService.isAnonymous()" class="box">
     <h2>Navigation</h2>
     <ul class="sidebar-menu">
-        <li><a href="#/">Home</a>
-        </li>
-        <li><a href="#/login">Login</a>
-        </li>
-        <li><a href="#/register">Register</a>
+        <li ng-class="{'selected' : selectedSubMenu == null}">
+        <a href="#/">Home</a>
         </li>
     </ul>
 </div>
 
-<!-- Login / register box for anonymous site visitors -->
 <div class="box" ng-if="authService.isAnonymous()">
     <p>To publish a new ad, please login.</p>
     <a href="#/login" class="button">Login</a>
@@ -42,30 +38,15 @@
     <!-- TODO: implement the “Admin” navigation sidebar -->
     <h2>Navigation</h2>
     <ul class="sidebar-menu">
-        <li><a href="#/">Ads</a>
+        <li ng-class="{'selected' : selectedSubMenu == null}">
+        <a href="#/admin/home">Ads</a>
         </li>
-        <li><a href="#/">Users</a>
+        <li><a href="#/admin/users/list">Users</a>
         </li>
-        <li><a href="#/">Categories</a>
+        <li><a href="#/admin/categories/list">Categories</a>
         </li>
-        <li><a href="#/">Towns</a>
+        <li><a href="#/admin/towns/list">Towns</a>
         </li>
     </ul>
 </div>
 
-<div ng-if="authService.isAdmin()" class="box">
-    <!-- TODO: implement the “Admin” navigation sidebar -->
-    <h2>Ads</h2>
-    <ul class="sidebar-menu">
-        <li><a href="#/">All</a>
-        </li>
-        <li><a href="#/">Published</a>
-        </li>
-        <li><a href="#/">Waiting Approval</a>
-        </li>
-        <li><a href="#/">Inactive</a>
-        </li>
-        <li><a href="#/">Rejected</a>
-        </li>
-    </ul>
-</div>

@@ -7,7 +7,12 @@ app.controller('LoginCtrl',
             authService.login(userData,
                 function success() {
                     notifyService.showInfo("Login successful");
-                    $location.path("/");
+                    if(authService.isAdmin()) {
+                        $location.path("/admin/home");
+                    } else {
+                        $location.path("/");
+                    } 
+                    
                 },
                 function error(err) {
                     notifyService.showError("Login failed: The user name or password is incorrect", err);
