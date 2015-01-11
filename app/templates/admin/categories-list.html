@@ -1,8 +1,18 @@
 <div class="box">
-    <h2>Categories List</h2>
+    <h2>Categories List <span><a href="#/admin/categories/create" class="button">Create New Category</a></span></h2>
     <ul class="ads">
-        <li ng-repeat="town in townsData.towns" class="box">
-            <h3>{{town.username}}</h3>
+        <li ng-repeat="category in categoriesData.categories" class="box">
+            <div class="box">
+	            <div><span><strong>Id: </strong></span>{{category.id}}</div>
+	            <div><span><strong>Town: </strong></span>{{category.username}}</div>
+            </div>
+            <a href="#/admin/categories/edit/{{category.id}}" class="button">Edit</a>
+            <a href="#/admin/categories/delete/{{category.id}}" class="button">Delete</a>
         </li>
     </ul>
 </div>
+
+<pagination total-items="categoriesData.numItems" ng-model="categoriesParams.startPage"
+  items-per-page="categoriesParams.pageSize" ng-change="reloadCategories()"
+  max-size="9" boundary-links="true">
+</pagination>

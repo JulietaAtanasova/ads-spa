@@ -33,7 +33,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            createTown: function (categoryData, success, error) {
+            createCategory: function (categoryData, success, error) {
                 var request = {
                     method: 'POST',
                     url: baseServiceUrl + '/api/admin/categories',

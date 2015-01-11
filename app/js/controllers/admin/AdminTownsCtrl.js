@@ -14,19 +14,20 @@ app.controller('AdminTownsCtrl',
                     $scope.townsData = data;
                 },
                 function error() {
-                    notifyService.showError("Cannot load towns", err);
+                    notifyService.showError("Cannot load towns");
                 })
         }
 
-        $scope.createTown = function() {
+        $scope.createTown = function(newTown) {
             adminService.getAllTowns(
-                $scope.townsData,
+                newTown,
                 function success(data) {
                     $scope.townsData = data;
                     notifyService.showInfo("Town created successful");
+                    $location.path("/admin/towns");
                 },
                 function error() {
-                    notifyService.showError("Cannot create town", err);
+                    notifyService.showError("Cannot create town");
                 })
         }
 
