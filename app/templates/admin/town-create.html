@@ -2,10 +2,10 @@
     <h2>Create Town</h2>
     <p>
         <label for="text">Town:</label>
-        <input type="textarea" id="text" ng-model="newTown.text" required />
+        <input type="textarea" id="text" ng-model="newTown.name" required />
     </p>
     <p>
-        <a href="#/admin/towns/list" ng-click="createTown(newTown.text)" class="button">Create</a>
+        <a href="#/admin/towns/list" ng-click="createTown(newTown.name)" class="button">Create</a>
         <a href="#/admin/towns/list" class="button">Cancel</a>
     <p>
 </div>

@@ -2,10 +2,10 @@
     <h2>Create Category</h2>
     <p>
         <label for="text">Category:</label>
-        <input type="textarea" id="text" ng-model="newCategory.text" required />
+        <input type="textarea" id="text" ng-model="newCategory.name" required />
     </p>
     <p>
-        <a href="#/admin/categories/list" ng-click="createCategory(newCategory.text)" class="button">Create</a>
+        <a href="#/admin/categories/list" ng-click="createCategory(newCategory.name)" class="button">Create</a>
         <a href="#/admin/categories/list" class="button">Cancel</a>
     <p>
 </div>

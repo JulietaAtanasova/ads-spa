@@ -1,10 +1,14 @@
 'use strict';
 
 app.controller('AdminCategoriesCtrl',
-    function ($scope, $rootScope, $routeParams, $location, adminService, notifyService, pageSize) {
+    function($scope, $rootScope, $routeParams, $location, adminService, notifyService, pageSize) {
         $scope.categoriesParams = {
             'startPage': 1,
             'pageSize': pageSize
+        };
+
+        $scope.newCategory = {
+            name: null
         };
 
         $scope.reloadCategories = function() {
@@ -18,9 +22,9 @@ app.controller('AdminCategoriesCtrl',
                 })
         }
 
-        $scope.createTown = function(newCategory) {
+        $scope.createCategory = function(newCategory) {
             adminService.getAllCategories(
-                newCategory,
+                $scope.newCategory,
                 function success(data) {
                     $scope.categoriesData = data;
                     notifyService.showInfo("Category created successful");

@@ -6,6 +6,9 @@ app.controller('AdminTownsCtrl',
             'startPage': 1,
             'pageSize': pageSize
         };
+        $scope.newTown = {
+        	name: null
+        };
 
         $scope.reloadTowns = function() {
             adminService.getAllTowns(
@@ -20,7 +23,7 @@ app.controller('AdminTownsCtrl',
 
         $scope.createTown = function(newTown) {
             adminService.getAllTowns(
-                newTown,
+                $scope.newTown,
                 function success(data) {
                     $scope.townsData = data;
                     notifyService.showInfo("Town created successful");
