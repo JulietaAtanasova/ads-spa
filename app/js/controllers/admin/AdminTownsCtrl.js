@@ -7,7 +7,7 @@ app.controller('AdminTownsCtrl',
             'pageSize': pageSize
         };
         $scope.newTown = {
-        	name: null
+            name: null
         };
 
         $scope.reloadTowns = function() {
@@ -31,6 +31,18 @@ app.controller('AdminTownsCtrl',
                 },
                 function error() {
                     notifyService.showError("Cannot create town");
+                })
+        }
+
+        $scope.deleteTown = function() {
+            adminService.deleteTown(
+                $routeParams.id,
+                function success() {
+                    notifyService.showInfo("Town deleted successful.");
+                    $location.path("/admin/towns");
+                },
+                function error() {
+                    notifyService.showError("Cannot delete town");
                 })
         }
 
