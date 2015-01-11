@@ -13,7 +13,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getAllUsers: function (id, success, error) {
+            getAllUsers: function (params, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/users',

@@ -1,3 +1,19 @@
 <div class="box">
-    <h2>Users List</h2>
+    <h2>Users List <span><a href="#/admin/users/create" class="button">Create New User</a></span></h2>
+    <ul class="ads">
+        <li ng-repeat="user in usersData.users" class="box">
+            <div class="box">
+                <div><span><strong>Username: </strong></span>{{user.username}}</div>
+                <div><span><strong>Name: </strong></span>{{user.name}}</div>
+                <div><span><strong>Email: </strong></span>{{user.email}}</div>
+                <div><span><strong>Phone: </strong></span>{{user.phoneNumber}}</div>
+
+            </div>
+            <a href="#/admin/users/edit/{{user.id}}" class="button">Edit</a>
+            <a href="#/admin/users/delete/{{user.id}}" class="button">Delete</a>
+        </li>
+    </ul>
 </div>
+
+<pagination total-items="usersData.numItems" ng-model="usersParams.startPage" items-per-page="usersParams.pageSize" ng-change="reloadUsers()" max-size="9" boundary-links="true">
+</pagination>

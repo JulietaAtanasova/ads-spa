@@ -22,7 +22,7 @@ app.controller('AdminTownsCtrl',
         }
 
         $scope.createTown = function(newTown) {
-            adminService.getAllTowns(
+            adminService.createTown(
                 $scope.newTown,
                 function success(data) {
                     $scope.townsData = data;

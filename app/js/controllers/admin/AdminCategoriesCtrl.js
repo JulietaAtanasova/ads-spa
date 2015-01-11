@@ -23,7 +23,7 @@ app.controller('AdminCategoriesCtrl',
         }
 
         $scope.createCategory = function(newCategory) {
-            adminService.getAllCategories(
+            adminService.createCategory(
                 $scope.newCategory,
                 function success(data) {
                     $scope.categoriesData = data;
