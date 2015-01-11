@@ -45,6 +45,9 @@ var app = angular.module('app', [
             }).when('/admin/users/list', {
                 templateUrl: 'templates/admin/users-list.html',
                 controller: 'AdminUsersCtrl'
+            }).when('/admin/users/delete/:id', {
+                templateUrl: 'templates/admin/user-delete.html',
+                controller: 'AdminUsersCtrl'
             }).when('/admin/categories/list', {
                 templateUrl: 'templates/admin/categories-list.html',
                 controller: 'AdminCategoriesCtrl'

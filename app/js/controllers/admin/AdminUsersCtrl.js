@@ -19,7 +19,7 @@ app.controller('AdminUsersCtrl',
                 function error() {
                     notifyService.showError("Cannot load users");
                 })
-        }
+        };
 
         $scope.createUser = function(newUser) {
             adminService.createUser(
@@ -31,6 +31,18 @@ app.controller('AdminUsersCtrl',
                 },
                 function error() {
                     notifyService.showError("Cannot create user");
+                })
+        };
+
+        $scope.deleteUser = function() {
+            adminService.deleteUser(
+                $routeParams.id,
+                function success() {
+                    notifyService.showInfo("User deleted successful.");
+                    $location.path("/admin/users/list");
+                },
+                function error() {
+                    notifyService.showError("Cannot delete user");
                 })
         }
 

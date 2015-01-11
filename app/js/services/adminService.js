@@ -23,6 +23,15 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            deleteUser: function(id, success, error) {
+                var request = {
+                    method: 'DELETE',
+                    url: baseServiceUrl + '/api/admin/user/' + id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
             getAllCategories: function (params, success, error) {
                 var request = {
                     method: 'GET',
