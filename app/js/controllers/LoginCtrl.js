@@ -2,6 +2,7 @@
 
 app.controller('LoginCtrl',
     function ($scope, $rootScope, $location, authService, notifyService) {
+
         $scope.login = function(userData) {
             authService.login(userData,
                 function success() {

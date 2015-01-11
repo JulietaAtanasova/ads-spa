@@ -29,15 +29,17 @@
     <li ng-repeat="ad in ads.ads" class="box">
         <h1>{{ad.title}}</h1>
         <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
+        <br>
         <div ng-if='ad.imageDataUrl'>
-            <strong>Image:</strong>
             <img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
         </div>
+        <br>
         <div><strong>Text:</strong> {{ad.text}}</div>
-        <div><strong>Name:</strong> {{ad.ownerName}}</div>
-        <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
-        <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
+
+        <div class="box"><strong>Category:</strong> {{ad.categoryName}}</div>
+        <div class="box"><strong>Town:</strong> {{ad.townName}}</div>
         <div class="box"><strong>Status:</strong> {{ad.status}}</div>
+
         <p ng-if="ad.status != 'Inactive'">
             <a ng-click="deactivateAd(ad.id)" class="button">Deactivate</a>
         <p>

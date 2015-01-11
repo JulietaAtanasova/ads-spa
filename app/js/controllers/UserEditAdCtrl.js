@@ -19,7 +19,7 @@ app.controller('UserEditAdCtrl',
                 function error() {
                     notifyService.showError("Load ad failed.", err);
                 })
-        }
+        };
 
         $scope.editAd = function(newAdData) {
             if ($scope.adData.changeimage == true) {
@@ -38,7 +38,7 @@ app.controller('UserEditAdCtrl',
                     notifyService.showError("Edit ad failed", err);
                 }
             );
-        }
+        };
 
         $scope.getAdToEdit($routeParams.id);
 

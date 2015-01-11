@@ -1,7 +1,8 @@
 'use strict';
 
 app.controller('HomeCtrl',
-    function($scope, adsService, notifyService, pageSize) {
+    function ($scope, adsService, notifyService, pageSize) {
+
         $scope.adsParams = {
             'startPage': 1,
             'pageSize': pageSize

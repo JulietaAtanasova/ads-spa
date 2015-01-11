@@ -31,7 +31,7 @@ app.factory('adminService',
                     params: params
                 };
                 $http(request).success(success).error(error);
-            }
+            },
 
             getAllTowns: function (id, success, error) {
                 var request = {

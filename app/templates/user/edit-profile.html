@@ -1,3 +1,36 @@
 <div class="box">
     <h2>Edit Profile</h2>
+
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="userData.name" required />
+    </p>
+
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="userData.email" required />
+    </p>
+
+    <p>
+        <label for="phone">Phone:</label>
+        <input type="phone" id="phone" ng-model="userData.phoneNumber" />
+    </p>
+
+    <p>
+        <label for="town">Town:</label>
+        <select id="town" ng-model="userData.townId">
+            <option value="null">{{userData.townId}}option>
+                <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+        </select>
+    </p>
+
+    <p>
+        <a ng-click="editProfile(userData)" class="button">Update</a>
+        <a href="#/user/ads" class="button">Cancel</a>
+        <p>
+</div>
+
+<div class="box">
+    <h2>Change Password</h2>
+    <p>{{userData.name}}</p>
 </div>

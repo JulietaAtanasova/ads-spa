@@ -22,13 +22,17 @@
 <div ng-if="authService.isNormalUser()" class="box">
     <h2>Navigation</h2>
     <ul class="sidebar-menu">
-        <li><a href="#/">Home</a>
+        <li ng-class="{'selected' : selectedSubMenu == null}">
+            <a href="#/">Home</a>
         </li>
-        <li><a href="#/user/ads">My Ads</a>
+        <li ng-click="subMenuClicked('MyAds')" ng-class="{'selected' : selectedSubMenu == 'MyAds'}">
+            <a href="#/user/ads">My Ads</a>
         </li>
-        <li><a href="#/user/ads/publish">Publish New Ad</a>
+        <li ng-click="subMenuClicked('PublishNewAd')" ng-class="{'selected' : selectedSubMenu == 'PublishNewAd'}">
+        <a href="#/user/ads/publish">Publish New Ad</a>
         </li>
-        <li><a href="#/user/edit-profile">Edit Profile</a>
+        <li ng-click="subMenuClicked('EditProfile')" ng-class="{'selected' : selectedSubMenu == 'EditProfile'}">
+        <a href="#/user/profile">Edit Profile</a>
         </li>
     </ul>
 </div>

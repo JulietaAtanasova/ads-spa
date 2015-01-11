@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('UserAdsCtrl',
-    function($scope, $rootScope, $routeParams, $location, userService, notifyService, pageSize) {
+    function ($scope, $rootScope, $routeParams, $location, userService, notifyService, pageSize) {
         $scope.adsParams = {
             'startPage': 1,
             'pageSize': pageSize

@@ -67,8 +67,26 @@ app.factory('userService',
                     headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
-            }
+            },
 
+            getUser: function(success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/user/profile',
+                    headers: authService.getAuthHeaders(),
+                };
+                $http(request).success(success).error(error);
+            },
+
+            editProfile: function(userData, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/profile',
+                    headers: authService.getAuthHeaders(),
+                    data: userData
+                };
+                $http(request).success(success).error(error);
+            }
         }
     }
 );

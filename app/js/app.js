@@ -37,6 +37,9 @@ var app = angular.module('app', [
             }).when('/user/ads/delete/:id', {
                 templateUrl: 'templates/user/delete-ad.html',
                 controller: 'UserDeleteAdCtrl'
+            }).when('/user/profile', {
+                templateUrl: 'templates/user/edit-profile.html',
+                controller: 'UserProfileCtrl'
             }).otherwise({
                 redirectTo: '/'
             });
