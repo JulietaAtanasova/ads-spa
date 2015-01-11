@@ -36,8 +36,8 @@
         <br>
         <div><strong>Text:</strong> {{ad.text}}</div>
 
-        <div class="box"><strong>Category:</strong> {{ad.categoryName}}</div>
-        <div class="box"><strong>Town:</strong> {{ad.townName}}</div>
+        <div class="box"><strong>Category:</strong> {{ad.categoryName || 'No chosen category'}}</div>
+        <div class="box"><strong>Town:</strong> {{ad.townName || 'No chosen town'}}</div>
         <div class="box"><strong>Status:</strong> {{ad.status}}</div>
 
         <p ng-if="ad.status != 'Inactive'">
