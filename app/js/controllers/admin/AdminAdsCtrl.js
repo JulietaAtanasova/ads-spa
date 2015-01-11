@@ -15,7 +15,7 @@ app.controller('AdminAdsCtrl',
         $scope.$on("adStatusSelectionChanged", function(event, selectedAdStatus) {
             $scope.adsParams.status = selectedAdStatus;
             $scope.adsParams.startPage = 1;
-            $scope.reloadAds();
+            $scope.getAllAds();
         });
 
         $scope.getAllAds = function() {
@@ -31,7 +31,7 @@ app.controller('AdminAdsCtrl',
             );
         };
 
-        $scope.reloadAds();
+        $scope.getAllAds();
 
     }
 );
