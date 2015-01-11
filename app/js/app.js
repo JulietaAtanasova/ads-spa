@@ -51,6 +51,9 @@ var app = angular.module('app', [
             }).when('/admin/categories/create', {
                 templateUrl: 'templates/admin/category-create.html',
                 controller: 'AdminCategoriesCtrl'
+            }).when('/admin/categories/delete/:id', {
+                templateUrl: 'templates/admin/category-delete.html',
+                controller: 'AdminCategoriesCtrl'
             }).when('/admin/towns/list', {
                 templateUrl: 'templates/admin/towns-list.html',
                 controller: 'AdminTownsCtrl'

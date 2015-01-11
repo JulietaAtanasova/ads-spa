@@ -40,6 +40,7 @@ app.controller('AdminTownsCtrl',
                 function success() {
                     notifyService.showInfo("Town deleted successful.");
                     $location.path("/admin/towns/list");
+                    $scope.reloadTowns();
                 },
                 function error() {
                     notifyService.showError("Cannot delete town");

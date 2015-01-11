@@ -28,10 +28,22 @@ app.controller('AdminCategoriesCtrl',
                 function success(data) {
                     $scope.categoriesData = data;
                     notifyService.showInfo("Category created successful");
-                    $location.path("/admin/categories");
+                    $location.path("/admin/categories/list");
                 },
                 function error() {
                     notifyService.showError("Cannot create category");
+                })
+        }
+
+        $scope.deleteCategory = function() {
+            adminService.deleteCategory(
+                $routeParams.id,
+                function success() {
+                    notifyService.showInfo("Category deleted successful.");
+                    $location.path("/admin/categories/list");
+                },
+                function error() {
+                    notifyService.showError("Cannot delete category");
                 })
         }
 
