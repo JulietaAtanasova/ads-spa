@@ -57,6 +57,9 @@ var app = angular.module('app', [
             }).when('/admin/towns/create', {
                 templateUrl: 'templates/admin/town-create.html',
                 controller: 'AdminTownsCtrl'
+            }).when('/admin/towns/delete/:id', {
+                templateUrl: 'templates/admin/town-delete.html',
+                controller: 'AdminTownsCtrl'
             }).otherwise({
                 redirectTo: '/'
             });

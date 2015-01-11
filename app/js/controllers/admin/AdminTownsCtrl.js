@@ -27,7 +27,7 @@ app.controller('AdminTownsCtrl',
                 function success(data) {
                     $scope.townsData = data;
                     notifyService.showInfo("Town created successful");
-                    $location.path("/admin/towns");
+                    $location.path("/admin/towns/list");
                 },
                 function error() {
                     notifyService.showError("Cannot create town");
@@ -39,7 +39,7 @@ app.controller('AdminTownsCtrl',
                 $routeParams.id,
                 function success() {
                     notifyService.showInfo("Town deleted successful.");
-                    $location.path("/admin/towns");
+                    $location.path("/admin/towns/list");
                 },
                 function error() {
                     notifyService.showError("Cannot delete town");
