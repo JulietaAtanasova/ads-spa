@@ -1,13 +1,18 @@
 <div class="box">
-    <h2>Towns List</h2>
+    <h2>Towns List <span><a href="#/admin/towns/create" class="button">Create New Town</a></span></h2>
     <ul class="ads">
         <li ng-repeat="town in townsData.towns" class="box">
-            <h3>{{town.username}}</h3>
+            <div class="box">
+	            <div><span><strong>Id: </strong></span>{{town.id}}</div>
+	            <div><span><strong>Town: </strong></span>{{town.username}}</div>
+            </div>
+            <a href="#/admin/ads/edit/{{town.id}}" class="button">Edit</a>
+            <a href="#/admin/ads/delete/{{town.id}}" class="button">Delete</a>
         </li>
     </ul>
 </div>
 
-<pagination total-items="townsData.numItems" ng-model="townsData.startPage"
-  items-per-page="townsData.pageSize" ng-change="getAllTowns()"
+<pagination total-items="townsData.numItems" ng-model="townsParams.startPage"
+  items-per-page="townsParams.pageSize" ng-change="reloadTowns()"
   max-size="9" boundary-links="true">
 </pagination>

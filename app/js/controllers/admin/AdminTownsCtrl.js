@@ -2,22 +2,34 @@
 
 app.controller('AdminTownsCtrl',
     function($scope, $rootScope, $routeParams, $location, adminService, notifyService, pageSize) {
-        $scope.townsData = {
+        $scope.townsParams = {
             'startPage': 1,
             'pageSize': pageSize
         };
 
-        $scope.getAllTowns = function() {
+        $scope.reloadTowns = function() {
             adminService.getAllTowns(
+                $scope.townsParams,
                 function success(data) {
-                	$scope.townsData = data;
-                	console.log('yes');
+                    $scope.townsData = data;
                 },
                 function error() {
-                	notifyService.showError("Cannot load towns", err);
+                    notifyService.showError("Cannot load towns", err);
                 })
         }
 
-        $scope.getAllTowns();
+        $scope.createTown = function() {
+            adminService.getAllTowns(
+                $scope.townsData,
+                function success(data) {
+                    $scope.townsData = data;
+                    notifyService.showInfo("Town created successful");
+                },
+                function error() {
+                    notifyService.showError("Cannot create town", err);
+                })
+        }
+
+        $scope.reloadTowns();
     }
 );
