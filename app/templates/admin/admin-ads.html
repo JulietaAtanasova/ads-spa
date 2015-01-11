@@ -4,23 +4,58 @@
         <li class="special"
             ng-class="{'selected' : selectedAdStatus == null}"
             ng-click="adStatusClicked(null)">
-            <a href="#/user/ads">All</a>
+            <a href="#/admin/home">All</a>
         </li>
         <li ng-click="adStatusClicked('Published')"
             ng-class="{'selected' : selectedAdStatus == 'Published'}">
-            <a href="#/user/ads">Published</a>
+            <a href="#/admin/home">Published</a>
         </li>
         <li ng-click="adStatusClicked('WaitingApproval')"
             ng-class="{'selected' : selectedAdStatus == 'WaitingApproval'}">
-            <a href="#/user/ads">Waiting Approval</a>
+            <a href="#/admin/home">Waiting Approval</a>
         </li>
         <li ng-click="adStatusClicked('Inactive')"
             ng-class="{'selected' : selectedAdStatus == 'Inactive'}">
-            <a href="#/user/ads">Inactive</a>
+            <a href="#/admin/home">Inactive</a>
         </li>
         <li ng-click="adStatusClicked('Rejected')"
             ng-class="{'selected' : selectedAdStatus == 'Rejected'}">
-            <a href="#/user/ads">Rejected</a>
+            <a href="#/admin/home">Rejected</a>
         </li>
     </ul>
+</div>
+
+<ul class="ads">
+    <li ng-repeat="ad in ads.ads" class="box">
+        <h1>{{ad.title}}</h1>
+        <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
+        <br>
+        <div ng-if='ad.imageDataUrl'>
+            <img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
+        </div>
+        <br>
+        <div><strong>Text:</strong> {{ad.text}}</div>
+
+        <div class="box"><strong>Category:</strong> {{ad.categoryName || 'No chosen category'}}</div>
+        <div class="box"><strong>Town:</strong> {{ad.townName || 'No chosen town'}}</div>
+        <div class="box"><strong>Status:</strong> {{ad.status}}</div>
+
+        <p ng-if="ad.status != 'Inactive'">
+            <a ng-click="deactivateAd(ad.id)" class="button">Deactivate</a>
+        <p>
+        <div ng-if="ad.status === 'Inactive'">
+            <a href="#/user/ads/edit/{{ad.id}}" class="button">Edit</a>
+            <a ng-click="publishAgainAd(ad.id)" class="button">Publish Again</a>
+            <a href="#/user/ads/delete/{{ad.id}}" class="button">Delete</a>
+        </div>
+    </li>
+</ul>
+
+<pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+  items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+  max-size="9" boundary-links="true">
+</pagination>
+
+<div ng-if="ads.ads.length==0" class="box no-data">
+    No ads found.
 </div>

@@ -1,3 +1,13 @@
 <div class="box">
-	<h2>Towns List</h2>
+    <h2>Towns List</h2>
+    <ul class="ads">
+        <li ng-repeat="town in townsData.towns" class="box">
+            <h3>{{town.username}}</h3>
+        </li>
+    </ul>
 </div>
+
+<pagination total-items="townsData.numItems" ng-model="townsData.startPage"
+  items-per-page="townsData.pageSize" ng-change="getAllTowns()"
+  max-size="9" boundary-links="true">
+</pagination>

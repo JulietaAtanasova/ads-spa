@@ -23,7 +23,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getAllCategories: function (id, success, error) {
+            getAllCategories: function (params, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/categories',
@@ -33,12 +33,11 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getAllTowns: function (id, success, error) {
+            getAllTowns: function (success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/towns',
                     headers: authService.getAuthHeaders(),
-                    params: params
                 };
                 $http(request).success(success).error(error);
             }

@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AdminAdsCtrl',
-    function ($scope, $rootScope, $routeParams, $location, userService, notifyService, pageSize) {
+    function ($scope, $rootScope, $routeParams, $location, adminService, notifyService, pageSize) {
         $scope.adsParams = {
             'startPage': 1,
             'pageSize': pageSize
@@ -18,11 +18,12 @@ app.controller('AdminAdsCtrl',
             $scope.reloadAds();
         });
 
-        $scope.reloadAds = function() {
-            userService.getUserAds(
+        $scope.getAllAds = function() {
+            adminService.getAllAds(
                 $scope.adsParams,
                 function success(data) {
                     $scope.ads = data;
+                    console.log('yes');
                 },
                 function error(err) {
                     notifyService.showError("Cannot load ads", err);

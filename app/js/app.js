@@ -42,16 +42,16 @@ var app = angular.module('app', [
                 controller: 'UserProfileCtrl'
             }).when('/admin/home', {
                 templateUrl: 'templates/admin/admin-ads.html',
-                controller: 'AdminAdCtrl'
+                controller: 'AdminAdsCtrl'
             }).when('/admin/users/list', {
                 templateUrl: 'templates/admin/users-list.html',
-                controller: 'AdminAdCtrl'
+                controller: 'AdminUsersCtrl'
             }).when('/admin/categories/list', {
                 templateUrl: 'templates/admin/categories-list.html',
-                controller: 'AdminAdCtrl'
+                controller: 'AdminCategoriesCtrl'
             }).when('/admin/towns/list', {
                 templateUrl: 'templates/admin/towns-list.html',
-                controller: 'AdminAdCtrl'
+                controller: 'AdminTownsCtrl'
             }).otherwise({
                 redirectTo: '/'
             });
