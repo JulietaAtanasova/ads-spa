@@ -6,12 +6,12 @@ app.controller('UserProfileCtrl',
             townId: null
         };
         $scope.towns = townsService.getTowns();
+        $scope.passwordData = {};
 
         $scope.getUser = function() {
             userService.getUser(
                 function success(data) {
                     $scope.userData = data;
-                    console.log($scope.userData);
                 },
                 function error(err) {
                     notifyService.showError("Can not find user", err);
@@ -24,10 +24,21 @@ app.controller('UserProfileCtrl',
                 userData,
                 function success() {
                     notifyService.showInfo("Profile edited successful.");
-                    $location.path("/");
                 },
                 function error(err) {
                     notifyService.showError("Edit profile failed", err);
+                }
+            );
+        };
+
+        $scope.changePassword = function(passwordData) {
+            userService.changePassword(
+                passwordData, 
+                function success(data) {
+                    notifyService.showInfo("Password edited successful.");
+                },
+                function error(err) {
+                    notifyService.showError("Change password failed.", err);
                 }
             );
         };

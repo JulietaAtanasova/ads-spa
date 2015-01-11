@@ -27,10 +27,29 @@
     <p>
         <a ng-click="editProfile(userData)" class="button">Update</a>
         <a href="#/user/ads" class="button">Cancel</a>
-        <p>
+    <p>
 </div>
 
 <div class="box">
     <h2>Change Password</h2>
-    <p>{{userData.name}}</p>
+
+    <p>
+        <label for="password">Old password:</label>
+        <input type="password" id="oldPassword" ng-model="password.oldPassword" required />
+    </p>
+
+    <p>
+        <label for="newPassword">New password:</label>
+        <input type="password" id="newPassword" ng-model="password.newPassword" required />
+    </p>
+
+    <p>
+        <label for="confirmPassword">Confirm new password:</label>
+        <input type="password" id="confirmPassword" ng-model="password.confirmPassword" required />
+    </p>
+
+    <p>
+        <a ng-click="changePassword(password)" class="button">Change Password</a>
+        <a href="#/user/ads" class="button">Cancel</a>
+    <p>
 </div>
