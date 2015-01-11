@@ -8,9 +8,11 @@
     <p>
         <label for="image">Image:</label>
         <input type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)" />
-        <div class="image-box">
-            <p>Image Preview</p>
+        <div ng-if='adData.imageDataUrl'>
+            <img class="ad-image" ng-src="{{adData.imageDataUrl}}" />
         </div>
+        <a ng-click="editAdImage()" class="button">Change Image</a>
+        <a ng-click="deleteAdImage()" class="button">Delete Image</a>
     </p>
 
     <p>

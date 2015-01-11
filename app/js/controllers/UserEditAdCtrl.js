@@ -15,18 +15,21 @@ app.controller('UserEditAdCtrl',
                 id,
                 function success(data) {
                     $scope.adData = data;
-                    console.log('get ad success');
-                    console.log($scope.adData);
                 },
                 function error() {
-                    console.log('get ad error');
+                    notifyService.showError("Load ad failed.", err);
                 })
         }
 
-        $scope.editAd = function(adData) {
+        $scope.editAd = function(newAdData) {
+            if ($scope.adData.changeimage == true) {
+                newAdData.changeimage = true;
+                newAdData.imageDataUrl = $scope.adData.imageDataUrl;
+            }
+
             userService.editAd(
                 $routeParams.id,
-                adData,
+                newAdData,
                 function success() {
                     notifyService.showInfo("Advertisement edited successful.");
                     $location.path("/user/ads");
@@ -54,5 +57,15 @@ app.controller('UserEditAdCtrl',
             }
         };
 
+        $scope.editAdImage = function() {
+            $scope.adData.changeimage = true;
+            notifyService.showInfo('The image will be edited.');
+        };
+
+        $scope.deleteAdImage = function() {
+            $scope.adData.changeimage = true;
+            $scope.adData.imageDataUrl = '';
+            notifyService.showInfo('The image will be deleted.');
+        };
     }
 );
