@@ -23,10 +23,23 @@ app.controller('AdminAdsCtrl',
                 $scope.adsParams,
                 function success(data) {
                     $scope.ads = data;
-                    console.log('yes');
                 },
                 function error(err) {
-                    notifyService.showError("Cannot load ads", err);
+                    notifyService.showError("Cannot load ads");
+                }
+            );
+        };
+
+        $scope.approveAd = function(id) {
+            var adId = parseInt(id);
+            adminService.approveAd(
+                adId, 
+                function success() {
+                    console.log('yes');
+                    notifyService.showError("Approve ad success");
+                }, 
+                function error() {
+                    notifyService.showError("Approve ad failed");
                 }
             );
         };

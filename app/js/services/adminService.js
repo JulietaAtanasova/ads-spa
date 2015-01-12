@@ -1,9 +1,9 @@
 'use strict';
 
 app.factory('adminService',
-    function ($http, baseServiceUrl, authService) {
+    function($http, baseServiceUrl, authService) {
         return {
-            getAllAds: function (params, success, error) {
+            getAllAds: function(params, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/ads',
@@ -13,7 +13,16 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getAllUsers: function (params, success, error) {
+            approveAd: function(id, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/ads/approve/' + id,
+                    headers: authService.getAuthHeaders(),
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getAllUsers: function(params, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/users',
@@ -32,7 +41,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getAllCategories: function (params, success, error) {
+            getAllCategories: function(params, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/categories',
@@ -42,7 +51,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            createCategory: function (categoryData, success, error) {
+            createCategory: function(categoryData, success, error) {
                 var request = {
                     method: 'POST',
                     url: baseServiceUrl + '/api/admin/categories',
@@ -61,7 +70,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getAllTowns: function (params, success, error) {
+            getAllTowns: function(params, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/towns',
@@ -71,7 +80,7 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            createTown: function (townData, success, error) {
+            createTown: function(townData, success, error) {
                 var request = {
                     method: 'POST',
                     url: baseServiceUrl + '/api/admin/towns',
