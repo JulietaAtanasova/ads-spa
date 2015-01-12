@@ -58,6 +58,20 @@ app.controller('AdminAdsCtrl',
             );
         };
 
+        $scope.deleteAd = function(id) {
+            var adId = parseInt(id);
+            adminService.deleteAd(
+                adId, 
+                function success() {
+                    $scope.getAllAds();
+                    notifyService.showInfo("Delete ad success");
+                }, 
+                function error() {
+                    notifyService.showError("Delete ad failed");
+                }
+            );
+        }
+
         $scope.getAllAds();
 
     }

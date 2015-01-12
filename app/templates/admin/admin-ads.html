@@ -35,26 +35,29 @@
         </div>
         <br>
         <div><strong>Text:</strong> {{ad.text}}</div>
-
-        <div class="box"><strong>Category:</strong> {{ad.categoryName || 'No chosen category'}}</div>
-        <div class="box"><strong>Town:</strong> {{ad.townName || 'No chosen town'}}</div>
+        <div><strong>Username:</strong> {{ad.ownerUsername}}</div>
+        <div><strong>Name:</strong> {{ad.ownerName}}</div>
+        <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
+        <div><strong>Tel:</strong> {{ad.ownerPhone}}</div>
+        <div><strong>Category:</strong> {{ad.categoryName || 'No chosen category'}}</div>
+        <div><strong>Town:</strong> {{ad.townName || 'No chosen town'}}</div>
         <div class="box"><strong>Status:</strong> {{ad.status}}</div>
 
         <p ng-if="ad.status === 'Published' || ad.status === 'Inactive'">
             <a ng-click="deactivateAd(ad.id)" class="button">Edit</a>
             <a href="#/admin/home" ng-click="rejectAd(ad.id)" class="button">Reject</a>
-            <a ng-click="deactivateAd(ad.id)" class="button">Delete</a>
+            <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
         <p>
         <p ng-if="ad.status === 'Rejected'">
             <a href="#/admin/home" ng-click="approveAd(ad.id)" class="button">Approve</a>
             <a ng-click="deactivateAd(ad.id)" class="button">Edit</a>
-            <a ng-click="deactivateAd(ad.id)" class="button">Delete</a>
+            <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
         <p>
         <div ng-if="ad.status === 'WaitingApproval'">
             <a href="#/admin/home" ng-click="approveAd(ad.id)" class="button">Approve</a>
             <a href="#/admin/home" ng-click="rejectAd(ad.id)" class="button">Reject</a>
             <a ng-click="publishAgainAd(ad.id)" class="button">Edit</a>
-            <a href="#/user/ads/delete/{{ad.id}}" class="button">Delete</a>
+            <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
         </div>
     </li>
 </ul>
