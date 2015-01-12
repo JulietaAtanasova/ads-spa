@@ -21,19 +21,6 @@ app.controller('UserDeleteAdCtrl',
                 })
         }
 
-        $scope.deleteAd = function() {
-            userService.deleteAd(
-                $routeParams.id,
-                function success() {
-                    notifyService.showInfo("Advertisement deleted successful.");
-                    $location.path("/user/ads");
-                },
-                function error(err) {
-                    notifyService.showError("Delete ad failed", err);
-                }
-            );
-        }
-
         $scope.getAdToEdit($routeParams.id);
 
         $scope.fileSelected = function(fileInputField) {
