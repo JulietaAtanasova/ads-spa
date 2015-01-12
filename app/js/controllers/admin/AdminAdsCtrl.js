@@ -35,8 +35,22 @@ app.controller('AdminAdsCtrl',
             adminService.approveAd(
                 adId, 
                 function success() {
-                    console.log('yes');
-                    notifyService.showError("Approve ad success");
+                    $scope.getAllAds();
+                    notifyService.showInfo("Approve ad success");
+                }, 
+                function error() {
+                    notifyService.showError("Approve ad failed");
+                }
+            );
+        };
+
+        $scope.rejectAd = function(id) {
+            var adId = parseInt(id);
+            adminService.rejectAd(
+                adId, 
+                function success() {
+                    $scope.getAllAds();
+                    notifyService.showInfo("Reject ad success");
                 }, 
                 function error() {
                     notifyService.showError("Approve ad failed");
