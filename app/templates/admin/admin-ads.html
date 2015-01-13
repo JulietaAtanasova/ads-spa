@@ -45,7 +45,6 @@
 
         <p ng-if="ad.status === 'Published' || ad.status === 'Inactive'">
             <a ng-click="deactivateAd(ad.id)" class="button">Edit</a>
-            <a href="#/admin/home" ng-click="rejectAd(ad.id)" class="button">Reject</a>
             <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
         <p>
         <p ng-if="ad.status === 'Rejected'">
