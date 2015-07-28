@@ -21,6 +21,17 @@ app.controller('AdminTownsCtrl',
                 })
         }
 
+        $scope.getTown = function(id) {
+            adminService.getTownToEdit(
+                id,
+                function success(data) {
+                    $scope.townData = data;
+                },
+                function error() {
+                    notifyService.showError("Load town failed.", err);
+                })
+        };
+
         $scope.createTown = function(newTown) {
             adminService.createTown(
                 $scope.newTown,
@@ -48,5 +59,6 @@ app.controller('AdminTownsCtrl',
         }
 
         $scope.reloadTowns();
+        $scope.getTown($routeParams.id);
     }
 );
