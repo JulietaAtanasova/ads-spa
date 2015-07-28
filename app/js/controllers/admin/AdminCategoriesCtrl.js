@@ -22,6 +22,18 @@ app.controller('AdminCategoriesCtrl',
                 })
         }
 
+        $scope.getCategory = function(id) {
+            adminService.getCategoryById(
+                id,
+                function success(data) {
+                    $scope.categoryData = data;
+                },
+                function error() {
+                    notifyService.showError("Load category failed.", err);
+                })
+        };
+
+
         $scope.createCategory = function(newCategory) {
             adminService.createCategory(
                 $scope.newCategory,
@@ -48,5 +60,6 @@ app.controller('AdminCategoriesCtrl',
         }
 
         $scope.reloadCategories();
+        $scope.getCategory($routeParams.id);
     }
 );

@@ -50,6 +50,15 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            getUserById: function(id, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/users/' + id,
+                    headers: authService.getAuthHeaders(),
+                };
+                $http(request).success(success).error(error);
+            },
+
             deleteUser: function(id, success, error) {
                 var request = {
                     method: 'DELETE',
@@ -69,6 +78,15 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            getCategoryById: function(id, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/categories/' + id,
+                    headers: authService.getAuthHeaders(),
+                };
+                $http(request).success(success).error(error);
+            },
+
             createCategory: function(categoryData, success, error) {
                 var request = {
                     method: 'POST',
@@ -83,7 +101,6 @@ app.factory('adminService',
                 var request = {
                     method: 'DELETE',
                     url: baseServiceUrl + '/api/admin/categories/' + id,
-                    headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
@@ -102,7 +119,6 @@ app.factory('adminService',
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/towns/' + id,
-                    //headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
