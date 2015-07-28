@@ -1,0 +1,12 @@
+<div class="box">
+    <h2>Edit Town</h2>
+
+    <p>
+        <label for="text">Town:</label>
+        <input type="textarea" id="text" ng-model="townData.name" required />
+    </p>
+    <p>
+        <a href="#/admin/towns/list" ng-click="editTown(townData)" class="button">Edit</a>
+        <a href="#/admin/towns/list" class="button">Cancel</a>
+    <p>
+</div>

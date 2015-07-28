@@ -98,10 +98,29 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            getTownToEdit: function(id, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/towns/' + id,
+                    //headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
             createTown: function(townData, success, error) {
                 var request = {
                     method: 'POST',
                     url: baseServiceUrl + '/api/admin/towns',
+                    headers: authService.getAuthHeaders(),
+                    data: townData
+                };
+                $http(request).success(success).error(error);
+            },
+
+            editTown: function(id, townData, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/towns/' + id,
                     headers: authService.getAuthHeaders(),
                     data: townData
                 };

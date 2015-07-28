@@ -60,6 +60,9 @@ var app = angular.module('app', [
             }).when('/admin/towns/list', {
                 templateUrl: 'templates/admin/towns-list.html',
                 controller: 'AdminTownsCtrl'
+            }).when('/admin/towns/edit/:id', {
+                templateUrl: 'templates/admin/town-edit.html',
+                controller: 'AdminEditTownCtrl'
             }).when('/admin/towns/create', {
                 templateUrl: 'templates/admin/town-create.html',
                 controller: 'AdminTownsCtrl'
