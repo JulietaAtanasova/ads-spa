@@ -42,6 +42,9 @@ var app = angular.module('app', [
             }).when('/admin/home', {
                 templateUrl: 'templates/admin/admin-ads.html',
                 controller: 'AdminAdsCtrl'
+            }).when('/admin/ads/edit/:id', {
+                templateUrl: 'templates/admin/ad-edit.html',
+                controller: 'AdminAdsCtrl'
             }).when('/admin/ads/delete/:id', {
                 templateUrl: 'templates/admin/ad-delete.html',
                 controller: 'AdminAdsCtrl'

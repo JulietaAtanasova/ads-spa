@@ -29,7 +29,6 @@ app.controller('AdminCategoriesCtrl',
                     $scope.categoryData = data;
                 },
                 function error(err) {
-                    notifyService.showError("Load category failed.", err);
                 })
         }
 

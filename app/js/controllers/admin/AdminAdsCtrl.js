@@ -1,11 +1,14 @@
 'use strict';
 
 app.controller('AdminAdsCtrl',
-    function ($scope, $rootScope, $routeParams, $location, adminService, notifyService, pageSize) {
+    function ($scope, $rootScope, $routeParams, $location, townsService, categoriesService, adminService, notifyService, pageSize) {
         $scope.adsParams = {
             'startPage': 1,
             'pageSize': pageSize
         };
+
+        $scope.categories = categoriesService.getCategories();
+        $scope.towns = townsService.getTowns();
 
         $scope.adStatusClicked = function(clickedAdStatus) {
             $scope.selectedAdStatus = clickedAdStatus;
@@ -36,8 +39,7 @@ app.controller('AdminAdsCtrl',
                 function success(data){
                     $scope.adData = data;
                 },
-                function error(err){
-                    notifyService.showError("Load ad failed.", err);
+                function error(){
                 })
         }
 
@@ -68,6 +70,19 @@ app.controller('AdminAdsCtrl',
                 }
             );
         };
+
+        $scope.editAd = function(adData) {
+            adminService.editAd(
+                $routeParams.id,
+                adData,
+                function success() {
+                    notifyService.showInfo("Ad edited successful");
+                    $location.path("/admin/home");
+                },
+                function error() {
+                    notifyService.showError("Ad edit failed");
+                })
+        }
 
         $scope.deleteAd = function() {
             adminService.deleteAd(
