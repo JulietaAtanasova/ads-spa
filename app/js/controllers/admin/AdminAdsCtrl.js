@@ -30,6 +30,17 @@ app.controller('AdminAdsCtrl',
             );
         };
 
+        $scope.getAdById = function(id){
+            adminService.getAdById(
+                id,
+                function success(data){
+                    $scope.adData = data;
+                },
+                function error(err){
+                    notifyService.showError("Load ad failed.", err);
+                })
+        }
+
         $scope.approveAd = function(id) {
             var adId = parseInt(id);
             adminService.approveAd(
@@ -58,12 +69,10 @@ app.controller('AdminAdsCtrl',
             );
         };
 
-        $scope.deleteAd = function(id) {
-            var adId = parseInt(id);
+        $scope.deleteAd = function() {
             adminService.deleteAd(
-                adId, 
+                $routeParams.id, 
                 function success() {
-                    $scope.getAllAds();
                     notifyService.showInfo("Delete ad success");
                 }, 
                 function error() {
@@ -73,6 +82,7 @@ app.controller('AdminAdsCtrl',
         }
 
         $scope.getAllAds();
+        $scope.getAdById($routeParams.id);
 
     }
 );

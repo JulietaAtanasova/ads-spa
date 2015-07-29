@@ -45,18 +45,18 @@
 
         <p ng-if="ad.status === 'Published' || ad.status === 'Inactive'">
             <a ng-click="deactivateAd(ad.id)" class="button">Edit</a>
-            <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
+            <a href="#/admin/ads/delete/{{ad.id}}" class="button">Delete</a>
         <p>
         <p ng-if="ad.status === 'Rejected'">
             <a href="#/admin/home" ng-click="approveAd(ad.id)" class="button">Approve</a>
             <a ng-click="deactivateAd(ad.id)" class="button">Edit</a>
-            <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
+            <a href="#/admin/ads/delete/{{ad.id}}"  class="button">Delete</a>
         <p>
         <div ng-if="ad.status === 'WaitingApproval'">
             <a href="#/admin/home" ng-click="approveAd(ad.id)" class="button">Approve</a>
             <a href="#/admin/home" ng-click="rejectAd(ad.id)" class="button">Reject</a>
             <a ng-click="publishAgainAd(ad.id)" class="button">Edit</a>
-            <a href="#/admin/home" ng-click="deleteAd(ad.id)" class="button">Delete</a>
+            <a href="#/admin/ads/delete/{{ad.id}}" class="button">Delete</a>
         </div>
     </li>
 </ul>

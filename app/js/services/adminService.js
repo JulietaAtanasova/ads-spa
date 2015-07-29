@@ -13,11 +13,20 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            getAdById: function(id, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/ads/' + id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
             approveAd: function(id, success, error) {
                 var request = {
                     method: 'PUT',
                     url: baseServiceUrl + '/api/admin/ads/approve/' + id,
-                    headers: authService.getAuthHeaders(),
+                    headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
@@ -26,7 +35,7 @@ app.factory('adminService',
                 var request = {
                     method: 'PUT',
                     url: baseServiceUrl + '/api/admin/ads/reject/' + id,
-                    headers: authService.getAuthHeaders(),
+                    headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
@@ -35,7 +44,7 @@ app.factory('adminService',
                 var request = {
                     method: 'DELETE',
                     url: baseServiceUrl + '/api/admin/ads/' + id,
-                    headers: authService.getAuthHeaders(),
+                    headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
@@ -54,7 +63,7 @@ app.factory('adminService',
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/admin/users/' + id,
-                    headers: authService.getAuthHeaders(),
+                    headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
@@ -81,7 +90,7 @@ app.factory('adminService',
             getCategoryById: function(id, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/api/categories/' + id,
+                    url: baseServiceUrl + '/api/categories/' + id
                 };
                 $http(request).success(success).error(error);
             },
@@ -128,7 +137,7 @@ app.factory('adminService',
             getTownToEdit: function(id, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/api/towns/' + id,
+                    url: baseServiceUrl + '/api/towns/' + id
                 };
                 $http(request).success(success).error(error);
             },

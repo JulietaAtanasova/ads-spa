@@ -1,0 +1,24 @@
+<div class="box">
+    <h2>Confirm Deleting Ad?</h2>
+    <div>
+        <h1>{{adData.title}}</h1>
+        <div><strong>Date:</strong> {{adData.date | date:'dd-MMM-yyyy'}}</div>
+        <br>
+        <div ng-if='adData.imageDataUrl'>
+            <img class="ad-image" ng-src="{{adData.imageDataUrl}}" />
+        </div>
+        <br>
+        <div><strong>Text:</strong> {{adData.text}}</div>
+        <div><strong>Username:</strong> {{adData.ownerUsername}}</div>
+        <div><strong>Name:</strong> {{adData.ownerName}}</div>
+        <div><strong>Email:</strong> {{adData.ownerEmail}}</div>
+        <div><strong>Tel:</strong> {{adData.ownerPhone}}</div>
+        <div><strong>Category:</strong> {{adData.categoryName || 'No chosen category'}}</div>
+        <div><strong>Town:</strong> {{adData.townName || 'No chosen town'}}</div>
+        <div class="box"><strong>Status:</strong> {{adData.status}}</div>
+        <p>
+            <a href="#/admin/home" ng-click="deleteAd()" class="button">Delete</a>
+            <a href="#/admin/home" class="button">Cancel</a>
+        </p>
+    </div>
+</div>
