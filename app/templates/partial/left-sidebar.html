@@ -18,17 +18,17 @@
 <div ng-if="authService.isNormalUser()" class="box">
     <h2>Navigation</h2>
     <ul class="sidebar-menu">
-        <li ng-class="{'selected' : selectedSubMenu == null}">
+        <li ng-click="submenuClicked(null)" ng-class="{'selected' : selectedSubMenu == null}">
             <a href="#/">Home</a>
         </li>
-        <li ng-click="subMenuClicked('MyAds')" ng-class="{'selected' : selectedSubMenu == 'MyAds'}">
+        <li ng-click="submenuClicked('MyAds')" ng-class="{'selected' : selectedSubMenu == 'MyAds'}">
             <a href="#/user/ads">My Ads</a>
         </li>
-        <li ng-click="subMenuClicked('PublishNewAd')" ng-class="{'selected' : selectedSubMenu == 'PublishNewAd'}">
-        <a href="#/user/ads/publish">Publish New Ad</a>
+        <li ng-click="submenuClicked('PublishNewAd')" ng-class="{'selected' : selectedSubMenu == 'PublishNewAd'}">
+            <a href="#/user/ads/publish">Publish New Ad</a>
         </li>
-        <li ng-click="subMenuClicked('EditProfile')" ng-class="{'selected' : selectedSubMenu == 'EditProfile'}">
-        <a href="#/user/profile">Edit Profile</a>
+        <li ng-click="submenuClicked('EditProfile')" ng-class="{'selected' : selectedSubMenu == 'EditProfile'}">
+            <a href="#/user/profile">Edit Profile</a>
         </li>
     </ul>
 </div>
@@ -38,14 +38,17 @@
     <!-- TODO: implement the “Admin” navigation sidebar -->
     <h2>Navigation</h2>
     <ul class="sidebar-menu">
-        <li ng-class="{'selected' : selectedSubMenu == null}">
-        <a href="#/admin/home">Ads</a>
+        <li ng-click="submenuClicked(null)" ng-class="{'selected' : selectedSubMenu == null}">
+            <a href="#/admin/home">Ads</a>
         </li>
-        <li><a href="#/admin/users/list">Users</a>
+        <li ng-click="submenuClicked('Users')" ng-class="{'selected' : selectedSubMenu == 'Users'}">
+            <a href="#/admin/users/list">Users</a>
         </li>
-        <li><a href="#/admin/categories/list">Categories</a>
+        <li ng-click="submenuClicked('Categories')" ng-class="{'selected' : selectedSubMenu == 'Categories'}">
+            <a href="#/admin/categories/list">Categories</a>
         </li>
-        <li><a href="#/admin/towns/list">Towns</a>
+        <li ng-click="submenuClicked('Towns')" ng-class="{'selected' : selectedSubMenu == 'Towns'}">
+            <a href="#/admin/towns/list">Towns</a>
         </li>
     </ul>
 </div>

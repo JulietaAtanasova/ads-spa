@@ -10,5 +10,6 @@ app.controller('LeftSidebarCtrl',
         $scope.$on("subMenuSelectionChanged", function(event, selectedSubMenu) {
             //TO DO
         });
+
     }
 );
