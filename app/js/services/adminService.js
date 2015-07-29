@@ -82,7 +82,6 @@ app.factory('adminService',
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/categories/' + id,
-                    headers: authService.getAuthHeaders(),
                 };
                 $http(request).success(success).error(error);
             },
@@ -97,10 +96,21 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            editCategory: function(id, categoryData, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/categories/' + id,
+                    headers: authService.getAuthHeaders(),
+                    data: categoryData
+                };
+                $http(request).success(success).error(error);
+            },
+
             deleteCategory: function(id, success, error) {
                 var request = {
                     method: 'DELETE',
                     url: baseServiceUrl + '/api/admin/categories/' + id,
+                    headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },

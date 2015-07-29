@@ -31,8 +31,20 @@ app.controller('AdminCategoriesCtrl',
                 function error() {
                     notifyService.showError("Load category failed.", err);
                 })
-        };
+        }
 
+        $scope.editCategory = function(categoryData) {
+            adminService.editCategory(
+                $routeParams.id,
+                categoryData,
+                function success() {
+                    notifyService.showInfo("Category edited successful");
+                    $location.path("/admin/categories/list");
+                },
+                function error() {
+                    notifyService.showError("Category edit failed");
+                })
+        }
 
         $scope.createCategory = function(newCategory) {
             adminService.createCategory(

@@ -1,0 +1,11 @@
+<div class="box">
+    <h2>Edit Category</h2>
+    <p>
+        <label for="text">Category:</label>
+        <input type="textarea" id="text" ng-model="categoryData.name" required />
+    </p>
+    <p>
+        <a href="#/admin/categories/list" ng-click="editCategory(categoryData)" class="button">Edit</a>
+        <a href="#/admin/categories/list" class="button">Cancel</a>
+    <p>
+</div>
